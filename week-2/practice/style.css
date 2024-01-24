@@ -1,0 +1,44 @@
+h2{
+    color: green;
+    font-style:oblique;
+    
+}
+h1{
+    color: blue;
+    font-style: oblique;
+    font-size: medium;
+
+}
+p{
+    color: darkmagenta;
+    font-style:oblique;
+    font-size: x-small;
+}
+#boxwithid{
+    height: fit-content;
+    width: fit-content;
+    background-color:red;
+    
+}
+
+example {
+    width: 300px;
+    height: 150px;
+    margin: 20px;
+
+    }
+    example {
+        width: 50%;
+        padding: 1em;
+        margin-bottom: 20px;
+        border: 2px solid #e74c3c; /* 2px solid red border */
+        width: 200px;
+        padding: 10px;
+        border: 2px solid #27ae60;
+        margin: 20px;
+        border: 2px solid rgb(255, 0, 0); /* RGB color */
+        background-color: #3498db; /* Hexadecimal color */
+        color: white; /* Named color */
+        padding: 10px;
+        }
+       

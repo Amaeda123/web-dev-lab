@@ -1,0 +1,89 @@
+body {
+    background-color: rgb(196, 144, 105); /* Set the main background color for the entire page */
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+header  {
+    background-color: rgb(244, 244, 200); /* Set the background color for the header */
+    color: black;
+    text-align: center;
+    padding: 20px;
+    font-weight: bold;
+    font-style: initial;
+    font-size: larger;
+    margin: 20px auto; 
+
+    max-width: 1500px;
+}
+
+#here {
+    background-color: rgb(244, 244, 200); /* background color for the here section */
+    color: black;
+    text-align: center;
+    padding: 50px 20px;
+    font-style: initial;
+}
+
+.box {
+    background-color: rgb(244, 244, 200); /*  background color for boxes and form */
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin: 20px auto; 
+    max-width: 1500px; 
+}
+.form-box {
+    background-color:   rgb(244, 244, 200); /* background color for the form */
+    color: black;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin: 20px auto; 
+    max-width: 500px; 
+}
+
+#about,
+#projects,
+#contact {
+    text-align: center;
+    margin: 20px;
+}
+p{
+    color: black;
+    font-style: oblique;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: large;
+}
+
+.box h2 ,h1 {
+    color: black;
+    margin-bottom: 10px;
+    font-size: 30px;
+}
+
+form {
+    display: grid;
+    gap: 10px;
+}
+
+button {
+    background-color: rgb(196, 144, 105);
+    color: black;
+    padding: 10px 8px;
+    border: none;
+    cursor: pointer;
+    margin: auto;
+}
+
+
+footer {
+    background-color:  rgb(244, 244, 200);
+    color: black;
+    text-align: center;
+    padding: 10px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 5%;
+
+}
