@@ -1,0 +1,25 @@
+.Mybutton{
+    padding: 20px;
+    border-radius: 5px;
+    background-color: beige;
+    margin: 3px;
+}
+.Mybutton:hover{
+
+    background-color: mediumaquamarine;
+    border-radius: 7px;
+    
+}
+p:hover{
+    background-color: beige;
+    text-transform: uppercase;
+
+}
+span:first-child
+{
+    background-color: lightblue;
+}
+.CustomeName > span:first-child{
+    background-color: aqua;
+    font-style:italic;
+}
