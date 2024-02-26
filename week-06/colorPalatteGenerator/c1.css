@@ -1,0 +1,17 @@
+#container {
+    display: flex;
+    flex-direction: row;
+    border: rgb(8, 8, 8) 4px solid;
+    background-color: rgb(180, 141, 216);
+    padding: 10px;
+    width: 1400px;
+    height: 100vh;
+}
+
+.Column {
+    background-color: rgb(119, 207, 207);
+    height: 80vh;
+    width: 15vh;
+    margin: 2px;
+
+}

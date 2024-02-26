@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="c1.css">
+</head>
+<body>
+    <button id="b1">Add Column</button>
+    <button id="b2">Colour</button>
+    <div id="container">
+       
+    </div>
+
+    <script>
+        const button1 = document.getElementById("b1")
+        const button2 = document.getElementById("b2")
+
+
+        function getRandomColor() {
+            const letters = '0123456789ABCDEF';
+            let color = '#';
+            for (let i = 0; i < 6; i++) {
+                color += letters[Math.floor(Math.random() * 16)];
+            }
+            return color;
+        }
+function buttonPressed() {
+    const container = document.getElementById("container");
+    console.log(" i am button. ");
+    const column1 = document.createElement("div");
+    column1.className = "Column";
+    container.appendChild(column1);
+  }
+  function changeColor(column) {
+        column.style.backgroundColor = getRandomColor();
+    }
+
+    function colorPressed() {
+        var columns = document.getElementsByClassName("Column");
+        for (var i = 0; i < columns.length; i++) {
+            changeColor(columns[i]);
+        }
+    }
+
+
+button1.style.backgroundColor = "red"
+  button1.onclick = buttonPressed;
+  button2.style.backgroundColor = "aqua"
+  button2.onclick = colorPressed;
+
+
+    </script>
+</html>
