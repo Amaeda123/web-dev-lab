@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Todo List</title>
+    <style>
+      #button {
+        color: darkblue;
+        background-color: bisque;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>Todo List</h2>
+    <input type="text" id="taskInput" />
+    <button id="button" onclick="addTask()">Add Task</button>
+    <ul id="taskList"></ul>
+
+    <script>
+      function addTask() {
+        // Get the input field and task list
+        var taskInput = document.getElementById("taskInput");
+        var taskList = document.getElementById("taskList");
+
+        // Get the task text and trim any whitespace
+        var taskText = taskInput.value.trim();
+
+        // Check if the task text is empty
+        if (taskText !== "") {
+          // Create a new list item
+          var listItem = document.createElement("li");
+
+          // Set the text content of the list item to the task text
+          listItem.textContent = taskText;
+
+          // Append the new list item to the task list
+          taskList.appendChild(listItem);
+
+          // Clear the input field
+          taskInput.value = "";
+        } else {
+          // Alert the user to enter a task if the input is empty
+          alert("Please enter a task!");
+        }
+      }
+    </script>
+  </body>
+</html>
