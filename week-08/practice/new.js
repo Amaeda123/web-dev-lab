@@ -43,6 +43,7 @@ console.log(arr2[0]);
 
 const { Country_Code, Age, ...rest } = person;
 console.log(Country_Code);
+
 // Basic object destructuring
 const person2 = { name: "John", age: 30 };
 const { naam, age } = person2;
