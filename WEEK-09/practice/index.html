@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      div {
+        border: 1px solid black;
+        padding: 20px;
+        width: fit-content;
+        background-color: rgb(255, 228, 193);
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <button id="remove">-</button>
+      <label for="name">0</label>
+      <button id="add">+</button>
+    </div>
+
+    <script>
+      var remove = document.getElementById("remove");
+      var add = document.getElementById("add");
+      var label = document.querySelector("label");
+
+      var count = localStorage.getItem("count") || 0;
+
+      label.textContent = count;
+
+      function updateCounter() {
+        label.textContent = count;
+        localStorage.setItem("count", count);
+      }
+
+      remove.addEventListener("click", function () {
+        count = parseInt(count) - 1;
+        updateCounter();
+      });
+
+      add.addEventListener("click", function () {
+        count = parseInt(count) + 1;
+        updateCounter();
+      });
+    </script>
+  </body>
+</html>

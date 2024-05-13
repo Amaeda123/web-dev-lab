@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>User Authentication</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+      }
+      #loginForm,
+      #loggedInMessage {
+        background-color: #fff;
+        border-radius: 5px;
+        padding: 20px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      }
+      h2 {
+        margin-top: 0;
+      }
+      label {
+        font-weight: bold;
+      }
+      input[type="text"],
+      input[type="password"],
+      button {
+        display: block;
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 10px;
+        border: 1px solid #ccc;
+        border-radius: 3px;
+        box-sizing: border-box;
+      }
+      button {
+        background-color: #4caf50;
+        color: #fff;
+        border: none;
+        cursor: pointer;
+      }
+      button:hover {
+        background-color: #45a049;
+      }
+      #loggedInMessage {
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="loginForm">
+      <h2>Login</h2>
+      <form>
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" />
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" />
+        <button type="button" onclick="handleLogin()">Login</button>
+      </form>
+    </div>
+
+    <div id="loggedInMessage" style="display: none">
+      <h2>Welcome back, <span id="usernameDisplay"></span>!</h2>
+      <button type="button" onclick="handleLogout()">Logout</button>
+    </div>
+
+    <script>
+            // handleLogin function to check if the user's login information is correct
+
+            function handleLogin() {
+              var username = document.getElementById("username").value;
+              var password = document.getElementById("password").value;
+              if (login(username, password)) {
+                document.getElementById("loggedInMessage").style.display = "block";
+                document.getElementById("usernameDisplay").innerText = username;
+                document.getElementById("loginForm").style.display = "none";
+              } else {
+                alert("Invalid username or password.");
+              }
+            }
+
+      // handle logout function to remove the user's login information from local storage
+            function handleLogout() {
+              logout();
+              document.getElementById("loggedInMessage").style.display = "none";
+              document.getElementById("loginForm").style.display = "block";
+            }
+
+
+            // Login function that checks if the username and password are correct
+            function login(username, password) {
+              if (username === "Amaeda" && password === "password123") {
+                localStorage.setItem("isLoggedIn", "true");
+                localStorage.setItem("username", username);
+                localStorage.setItem("password", password);
+                return true;
+              } else {
+                return false;
+            }
+
+
+            // Function to handle user logout
+            function logout() {
+              localStorage.removeItem("isLoggedIn");
+              localStorage.removeItem("username");
+            }
+
+
+            window.onload = function () {
+              if (localStorage.getItem("isLoggedIn") === "true") {
+                var username = localStorage.getItem("username");
+                document.getElementById("usernameDisplay").innerText = username;
+                document.getElementById("loggedInMessage").style.display = "block";
+                document.getElementById("loginForm").style.display = "none";
+              }
+            };
+    </script>
+  </body>
+</html>

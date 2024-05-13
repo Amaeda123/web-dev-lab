@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Todo List</title>
+    <style>
+      #button {
+        color: darkblue;
+        background-color: lightsalmon;
+      }
+      #button2 {
+        color: darkblue;
+        background-color: lightgreen;
+      }
+      #mycontainer {
+        background-color: lightblue;
+        /* border: 5px lightsalmon solid; */
+        width: max-content;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>Todo List</h2>
+    <input type="text" id="taskInput" />
+    <button id="button" onclick="addTask()">Add Task</button>
+    <button id="button2" onclick="removeTask()">Remove Task</button>
+
+    <div id="mycontainer">
+      <ul id="taskList"></ul>
+    </div>
+
+    <script>
+      function saveTasks() {
+        var taskList = document.getElementById("taskList");
+        var tasks = [];
+        var listItems = taskList.getElementsByTagName("li");
+        for (var i = 0; i < listItems.length; i++) {
+          tasks.push(listItems[i].textContent);
+        }
+        localStorage.setItem("tasks", JSON.stringify(tasks));
+      }
+
+      window.addEventListener("load", function () {
+        loadTasks();
+      });
+
+      function addTask() {
+        var taskInput = document.getElementById("taskInput");
+        var taskList = document.getElementById("taskList");
+
+        var taskText = taskInput.value.trim();
+
+        if (taskText !== "") {
+          var listItem = document.createElement("li");
+
+          listItem.textContent = taskText;
+
+          taskList.appendChild(listItem);
+          saveTasks();
+
+          taskInput.value = "";
+        } else {
+          alert("Please enter a task!");
+        }
+      }
+
+      function removeTask() {
+        var taskList = document.getElementById("taskList");
+
+        var listItems = taskList.getElementsByTagName("li");
+
+        if (listItems.length > 0) {
+          taskList.removeChild(listItems[listItems.length - 1]);
+
+          saveTasks();
+        } else {
+          alert("There are no tasks to remove!");
+        }
+      }
+
+      function loadTasks() {
+        var savedTasks = JSON.parse(localStorage.getItem("tasks"));
+        if (savedTasks) {
+          var taskList = document.getElementById("taskList");
+          savedTasks.forEach(function (task) {
+            var listItem = document.createElement("li");
+            listItem.textContent = task;
+            taskList.appendChild(listItem);
+          });
+        }
+      }
+    </script>
+  </body>
+</html>
